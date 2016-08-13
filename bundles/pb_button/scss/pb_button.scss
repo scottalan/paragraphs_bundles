@@ -1,0 +1,34 @@
+.paragraphs-item-type-paragraphs-bundles-button .form-control {
+  width: initial;
+}
+
+.pb-button-background {
+  margin: 0 auto 20px auto;
+  width: 100%;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  a {
+    color: transparent;
+  }
+  .inner-button-contents {
+    padding: 20px;
+    overflow: hidden;
+    .pb-button-image {
+      vertical-align: middle;
+      display: inline-block;
+      img {
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+      }
+    }
+    .pb-button-text {
+      vertical-align: middle;
+      display: inline-block;
+      padding: 20px;
+      float: right;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

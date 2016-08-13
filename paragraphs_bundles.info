@@ -1,0 +1,6 @@
+name = Paragraphs Bundles
+description = A collection of paragraph bundles with special rendering.
+core = 7.x
+package = Paragraphs
+
+dependencies[] = paragraphs

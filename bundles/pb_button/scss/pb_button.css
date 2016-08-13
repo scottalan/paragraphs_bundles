@@ -1,0 +1,28 @@
+.paragraphs-item-type-paragraphs-bundles-button .form-control {
+  width: initial; }
+
+.pb-button-background {
+  margin: 0 auto 20px auto;
+  width: 100%;
+  -moz-border-radius: 15px;
+  border-radius: 15px; }
+  .pb-button-background a {
+    color: transparent; }
+  .pb-button-background .inner-button-contents {
+    padding: 20px;
+    overflow: hidden; }
+    .pb-button-background .inner-button-contents .pb-button-image {
+      vertical-align: middle;
+      display: inline-block; }
+      .pb-button-background .inner-button-contents .pb-button-image img {
+        -moz-border-radius: 15px;
+        border-radius: 15px; }
+    .pb-button-background .inner-button-contents .pb-button-text {
+      vertical-align: middle;
+      display: inline-block;
+      padding: 20px;
+      float: right; }
+      .pb-button-background .inner-button-contents .pb-button-text p {
+        margin: 0; }
+
+/*# sourceMappingURL=pb_button.css.map */

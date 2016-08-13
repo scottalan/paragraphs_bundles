@@ -1,0 +1,121 @@
+<?php
+/**
+ * @file
+ * Module file for PP Button.
+ */
+
+include_once 'pb_button.features.inc';
+include_once 'includes/pb_button.paragraphs_bundles_button.render.inc';
+
+/**
+ * Implements hook_paragraphs_bundles_field_info().
+ */
+function pb_button_paragraphs_bundles_field_info() {
+  // Gathers a list of available image styles.
+  $image_styles = image_style_options(FALSE);
+
+  $info = array(
+    'field_pb_button_bg_color' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+      ),
+    ),
+    'field_pb_button_width' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+      ),
+    ),
+    'field_pb_button_height' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+      ),
+    ),
+    'field_pb_button_image' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+      ),
+    ),
+    'field_pb_button_image_style' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+        'allowed values' => $image_styles,
+      ),
+    ),
+    'field_pb_button_text' => array(
+      'paragraphs_bundles_button' => array(
+        'render callback' => 'pb_button_paragraphs_bundles_button_render_values',
+      ),
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_theme()
+ */
+function pb_button_theme($existing, $type, $theme, $path) {
+  return array(
+    'pb_button_paragraphs_bundles_button_form' => array(
+      'path' => $path . '/templates',
+      'template' => 'pb_button_paragraphs_bundles_button_form',
+      'render element' => 'element',
+    ),
+    'pb_button_paragraphs_bundles_button_render' => array(
+      'path' => $path . '/templates',
+      'base hook' => 'entity',
+      'template' => 'pb_button_paragraphs_bundles_button_render',
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
+ * Implements hook_paragraphs_field_widget_form_alter().
+ *
+ * This is how we define a new template for the paragraph form.
+ *
+ * This might need to be implemented in a custom module. For example, when
+ * using this module inside a distribution like Atrium, this alter already
+ * exists so we can just use it.
+ *
+ * Without following a default naming convention using a prefix:
+ * e.g., `paragraphs_bundles`_my_bundle
+ * There isn't a good way to tell what module the bundle belongs to.
+ *
+ * The theme hook that would need to be implemented would be something like:
+ *   - oa_related_paragraphs_paragraphs_bundles_button_form
+ */
+function pb_button_paragraphs_field_widget_form_alter(&$element, &$form_state, &$context) {
+  if (strpos($element['#bundle'], 'paragraphs_bundles') !== FALSE) {
+    // Set the theme for the widget.
+    $element['#theme'] = 'pb_button_' . $element['#bundle'] . '_form';
+    $css = drupal_get_path('module', 'pb_button') . '/css/pb_button.css';
+    $element['#attached']['css'][$css] = array();
+  }
+}
+
+/**
+ * Implements hook_paragraphs_bundles_icons().
+ *
+ * This is using font-awesome unicode values to return icons for paragraph
+ * buttons.
+ *
+ * @see http://fortawesome.github.io/Font-Awesome/3.2.1/cheatsheet/
+ */
+function pb_button_paragraphs_bundles_icons($type) {
+  $info = array();
+  switch ($type) {
+    case 'paragraphs_bundles_button':
+      $info = array(
+        // @todo: Replace this with a "real" icon.
+        'icon' => decode_entities('&#xf118;'),
+      );
+      break;
+
+    default:
+      break;
+  }
+
+  return $info;
+}
