@@ -4,7 +4,7 @@
  * Paragraphs Bundles module file.
  */
 
-define('PP_ADD_MORE_BUNDLE', 'add_more_bundle_');
+define('PB_ADD_MORE_BUNDLE', 'add_more_bundle_');
 
 include_once 'paragraphs_bundles.theme.inc';
 

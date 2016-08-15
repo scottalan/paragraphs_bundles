@@ -1,5 +1,5 @@
-name = pb_button
-description = A Paragraphs Pack bundle that renders a button.
+name = Paragraphs Bundles Button
+description = A Paragraphs Bundle that renders a button.
 core = 7.x
 package = Paragraphs
 dependencies[] = color_field
@@ -22,6 +22,7 @@ features[field_base][] = field_pb_button_link
 features[field_base][] = field_pb_button_text
 features[field_group][] = group_background|paragraphs_item|paragraphs_bundles_button|form
 features[field_group][] = group_image|paragraphs_item|paragraphs_bundles_button|form
+features[field_group][] = group_text|paragraphs_item|paragraphs_bundles_button|form
 features[field_instance][] = paragraphs_item-paragraphs_bundles_button-field_pb_button_bg_color
 features[field_instance][] = paragraphs_item-paragraphs_bundles_button-field_pb_button_image
 features[field_instance][] = paragraphs_item-paragraphs_bundles_button-field_pb_button_image_style

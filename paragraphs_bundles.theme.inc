@@ -15,7 +15,7 @@ function paragraphs_bundles_preprocess_paragraphs_field_multiple_value_form(&$va
   $children = !empty($vars['element']['add_more']) ? element_children($vars['element']['add_more']) : array();
   if (!empty($children)) {
     foreach ($children as $bundle) {
-      $machine_name = str_replace(PP_ADD_MORE_BUNDLE, '', $bundle);
+      $machine_name = str_replace(PB_ADD_MORE_BUNDLE, '', $bundle);
       // Allow modules the ability to define their own icons and titles for
       // paragraph add-more submit buttons. If a title is not defined we are
       // just using the #value that comes from the default input button.
